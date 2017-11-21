@@ -1,0 +1,88 @@
+.navbar-header .navbar-brand img {
+    height: 100%;
+    padding-right: .5em;
+}
+
+#page {
+    padding: 0;
+    margin: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.wrapper {
+    display: inline-block;
+    border: 1px dotted #9E9E9E;
+
+	&.no-print .card {
+	    opacity: 0.3;
+	}
+
+	.card {
+	    border: 2px solid #212121;
+	    padding: 0;
+	    margin: .1cm;
+	    width: 5.8cm;
+	    display: inline-block;
+	    height: 3.8cm;
+	    overflow: hidden;
+	    position: relative;
+
+	    &:hover{
+	    	background-color: #fafafa;
+	    	cursor: pointer;
+	    }
+
+	    &.pbi {
+	    border-left-width: 4px;
+	    padding-left: 4px;
+	}
+
+		&.bug {
+		    border-style: dashed;
+		    padding-left: 4px;
+		}
+
+		.id {
+		    font-size: .8em;
+		    color: #616161;
+		    display: block;
+		}
+
+		.title {
+		    font-size: 1em;   
+		    line-height: 1em;
+		}
+
+		.effort {
+		    font-size: 2em;
+		    line-height: 1em;
+		    margin-right: 3px;
+		    color: #616161;
+		    background-color: rgba(255,255,255,.5);
+		    float: right;
+		}
+	}
+}
+
+
+@page {
+    size: portrait;
+}
+
+@media print {
+    .no-print,
+    .no-print * {
+        display: none !important;
+    }
+    body {
+        padding: 0;
+        margin: 0;
+    }
+    .container, section {
+        padding: 0;
+        margin: 0;
+    }
+}

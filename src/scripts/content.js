@@ -7,7 +7,7 @@ function getColumns() {
     var columns = [];
     for (var c = 0; c < $columns.length; c++) {
         var col = $columns[c];
-        columns.push($columns[c].textContent);
+        columns.push(col.textContent);
     }
     return columns;
 }
@@ -23,6 +23,7 @@ function getRows() {
         for (var c = 0; c < $cells.length; c++) {
             item.push($cells[c].textContent.trim());
         }
+        console.debug(item);
         rows.push(item);
     }
     return rows;
