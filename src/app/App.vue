@@ -1,6 +1,6 @@
 <template>
 <section>
-    <nav class="navbar no-print is-primary" role="navigation" aria-label="main navigation">
+    <nav class="navbar no-print is-link" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <a class="navbar-item" href="https://bulma.io">
                 <img src="postits.png" alt="VSTS Cards" width="28" height="28">
@@ -25,7 +25,7 @@
                             </a>
                         </p>
                         <p class="control">
-                            <a class="button is-link" @click="openConfig">
+                            <a class="button is-primary" @click="openConfig">
                                 <span class="icon">
                                     <i class="fa fa-cog" aria-hidden="true"></i>
                                 </span>
@@ -50,7 +50,7 @@
                     <div class="control">
                         <div class="select">
                             <select v-model="idIndex">
-                                <option v-for="c in columns" :value="c.value">{{c.text}}</option>
+                                <option v-for="column in columns" :value="column.index">{{column.name}}</option>
                             </select>
                         </div>
                     </div>
@@ -60,7 +60,7 @@
                     <div class="control">
                         <div class="select">
                             <select v-model="typeIndex">
-                                <option v-for="c in columns" :value="c.value">{{c.text}}</option>
+                                <option v-for="column in columns" :value="column.index">{{column.name}}</option>
                             </select>
                         </div>
                     </div>
@@ -70,7 +70,7 @@
                     <div class="control">
                         <div class="select">
                             <select v-model="titleIndex">
-                                <option v-for="c in columns" :value="c.value">{{c.text}}</option>
+                                <option v-for="column in columns" :value="column.index">{{column.name}}</option>
                             </select>
                         </div>
                     </div>
@@ -80,7 +80,7 @@
                     <div class="control">
                         <div class="select">
                             <select v-model="effortIndex">
-                                <option v-for="c in columns" :value="c.value">{{c.text}}</option>
+                                <option v-for="column in columns" :value="column.index">{{column.name}}</option>
                             </select>
                         </div>
                     </div>
@@ -102,7 +102,7 @@
     <section class="section">
         <div class="container">
             <span class="wrapper" v-for="card in cards" :class="{'no-print': card.hidden}" @click="toggleCard(card)">
-                <div class="card" :class="{bug: card.type === 'Bug', pbi: card.type !== 'Bug'}">
+                <div class="card" :class="{bug: card.isBug, pbi: !card.isBug}">
                     <span class="effort">{{card.effort}}</span>
                     <span class="id">{{card.id}}</span>
                     <span class="title" ref="title">{{card.title}}</span>

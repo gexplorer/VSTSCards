@@ -36,9 +36,9 @@
 	    }
 
 	    &.pbi {
-	    border-left-width: 4px;
-	    padding-left: 4px;
-	}
+			border-left-width: 4px;
+			padding-left: 4px;
+		}
 
 		&.bug {
 		    border-style: dashed;
@@ -52,6 +52,7 @@
 		}
 
 		.title {
+			word-break: normal;
 		    font-size: 1em;   
 		    line-height: 1em;
 		}
