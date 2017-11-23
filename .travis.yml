@@ -1,4 +1,15 @@
 language: node_js
 node_js:
-  - "6"
+- '6'
 script: npm run pack
+before_install:
+- openssl aes-256-cbc -K $encrypted_b199ad231aa8_key -iv $encrypted_b199ad231aa8_iv
+  -in vsts-cards.pem.enc -out vsts-cards.pem -d
+deploy:
+  provider: releases
+  api_key:
+    secure: LJP57HevIIDXA+Jnc8SxpBqTTfUwy7Fp7z5u2ZYXpTVnBm6rCPBU6sClC3x/WEyGzEv9PZDAUQrcc4JNmOeaYqa2LQTvupMYoUkHQ1B4VLKKCZ/zXlgW4KmBpKC6DHWiherZ78hN2gAg9O6cnBL9GTGFkrNWXrzhyVGhIHNQ4+6QaxGEZ5CjycrjY+ckIHjNxjyul7mU2Faas8XOENpa6DjzdwRwH/M+n9+Tn3QhgsWXUiftGyKoVYms9V6qYS63G0d8b9EQTgnKhdnFtLepnS4uPZB9Q5tdwxVtD/xgVJA9eNPyZ5YmZ9c7ZAOC9peaJEQIOs0LCvENhn/wRd14YfyHXhbYqQyY16p3P/6PKXtZTF3VW6tKF/LiVrYe1we4uIpm9QAr8xW4nqFMN/ZfuQbOifqW9n463MM2x8ov7y2sp/pmz7ibuTfZRnhCxf243c9+zbuBHWg/UomSU1EW/7V6HMDbmuueqGAEygaBCh7JEE4s+9wODSo7N28bDVmyHNckLxWd21YEQiQ7WKGyFC9ZzNykIAKVho8GwZtrVtSWRi3AOIRD9FExJnLNWoSsm3q4HiUfQKjR+74zw0F+TY148tq/SZJTIKFwSfYOFA4ROYf1vn1B4awKV2wGPaiDrsCUYVv5NRc90KjhzZrqcusPAgJ93BiB6dvQA5xMnTM=
+  file: vsts-cards.crx
+  skip_cleanup: true
+  on:
+    tags: true
